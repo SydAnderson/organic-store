@@ -74,7 +74,24 @@ test('basic WishList', async ({ page }) => {
   //todo: select a product by name description
   await page.click('a:has-text("Tomatoes")');
   
-  //click add to wishlist in DetailsPage
-  await page.click('#wishlist_logged_in_html');
+  //click -> add to wishlist in DetailsPage
+  await page.click('[data-lang="Add To Wishlist"]');
+  await page.waitForLoadState('networkidle');
+  //click -> remove from wishlist short way
+  await page.click('[data-lang="Remove From Wishlist"]');
+  
+  /*
+  // REMOVE LARGE WAY
+  //click -> my account and remove from wishlist
+  await page.locator('[data-lang="My Account"]').click();
 
+  //click -> wishlist menu -> AccountPage
+  await page.click('.menu_option_wishlist');
+
+  //click -> button "Delete Wishlist" -> WishlistPage
+  await page.click('.delete_wishlist_button');
+
+  //await div zero_item
+  await page.locator('#wishlist_zero').waitFor();
+  */
 });
