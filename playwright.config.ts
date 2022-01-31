@@ -10,16 +10,8 @@ projects: [
         name: 'chromium',
         use: { 
             ...devices['Desktop Chrome'],
-            video: 'retain-on-failure' 
+            video: 'on'
             }
-    },
-    {
-        name: 'firefox',
-        use: { ...devices['Desktop Firefox'] },
-    },
-    {
-        name: 'webkit',
-        use: { ...devices['Desktop Safari'] },
     }
     ]
 
