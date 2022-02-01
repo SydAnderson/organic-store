@@ -9,8 +9,11 @@ export class ListPage{
 
     }
 
-    async gotoDetailItem(item : string){
+    async selectProduct(item : string){
         await this.page.click(`a:has-text("${ item }")`);
     }
     
+    async waitListPage(){
+        await this.page.waitForSelector('#browse_products_container');
+    }
 }

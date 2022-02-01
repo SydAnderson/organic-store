@@ -27,16 +27,16 @@ test.describe('wishlist tests', async () =>{
         expect(await toaster?.textContent()).toContain("Welcome");
         
         //click backToStore
-        await accountPage.gotoHome();
+        await accountPage.backToStore();
 
         await homePage.search(item);
         await page.waitForLoadState('networkidle');
-        await listPage.gotoDetailItem(item);
+        await listPage.selectProduct(item);
 
-        await detailPage.addToWish.click();
+        await detailPage.addToWish();
         await page.waitForLoadState('networkidle');
-        await detailPage.removeToWish.click();
-                
+        await detailPage.removeToWish();
+        
     });
 
 }); 

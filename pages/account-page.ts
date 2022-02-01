@@ -2,7 +2,7 @@ import { expect, Locator, Page } from "@playwright/test";
 
 export class AccountPage{
     readonly page : Page;
-    readonly backToStore : Locator;
+    readonly backToStoreButton : Locator;
 
     readonly menuDetail : Locator;
     readonly orderHistory : Locator;
@@ -16,7 +16,7 @@ export class AccountPage{
 
     constructor(page : Page) {
         this.page = page;
-        this.backToStore = page.locator('//div[@class="account_buttons"]/a[contains(@href,"https://automationstore.onlineweb.shop")]');
+        this.backToStoreButton = page.locator('//div[@class="account_buttons"]/a[contains(@href,"https://automationstore.onlineweb.shop")]');
         
         this.menuDetail = page.locator('.menu_option_details');
         this.orderHistory = page.locator('.menu_option_orders');
@@ -28,8 +28,8 @@ export class AccountPage{
         this.welcomeMsg = page.locator('.welcome_message');
     }
 
-    async gotoHome(){
-        this.backToStore.click();
+    async backToStore(){
+        this.backToStoreButton.click();
         await this.page.waitForLoadState('networkidle');    
     }
 
